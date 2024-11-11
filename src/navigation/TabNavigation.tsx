@@ -6,6 +6,7 @@ import { HomePage } from '../components/pages/HomePage';
 import { SearchPage } from '../components/pages/SearchPage';
 import { ProjectListPage } from '../components/pages/ProjectsListPage';
 import Icon from 'react-native-vector-icons/Feather';
+import { ProfilePage } from '../components/pages/ProfilePage';
 
 const Tabs = AnimatedTabBarNavigator();
 
@@ -51,6 +52,18 @@ export const TabNavigation = () => (
                     tabBarIcon: ({ focused, color, size }: { focused: boolean; color: string; size?: number }) => (
                         <Icon
                             name="book-open"
+                            size={size ? size : 24}
+                            color={focused ? color : "#222222"}
+                        />
+                    )
+                }}
+            />
+
+            <Tabs.Screen name="Perfil" component={ProfilePage}
+                options={{
+                    tabBarIcon: ({ focused, color, size }: { focused: boolean; color: string; size?: number }) => (
+                        <Icon
+                            name="user"
                             size={size ? size : 24}
                             color={focused ? color : "#222222"}
                         />
