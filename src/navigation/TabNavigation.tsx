@@ -14,7 +14,7 @@ export const TabNavigation = () => (
         <Tabs.Navigator
 
             tabBarOptions={{
-                activeTintColor: "#2F7C6E",
+                activeTintColor: "#C4B0E2",
                 inactiveTintColor: "#222222"
             }}
             appearance={{
