@@ -8,10 +8,12 @@ const Stack = createNativeStackNavigator();
 
 
 export const Navigation = () => {
-  return (
-    <Stack.Navigator>
-    <Stack.Screen name="Tabs" component={TabNavigation} />
-  </Stack.Navigator>
-  )
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Tabs" component={TabNavigation} options={{
+                headerShown: false
+            }} />
+        </Stack.Navigator>
+    )
 }
 
