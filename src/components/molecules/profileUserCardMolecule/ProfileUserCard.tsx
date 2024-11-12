@@ -9,7 +9,7 @@ export const ProfileUserCard = () => {
         style={styles.image}
       />
       <View style={styles.textContainer}>
-        <Text style={styles.name}>Katherinne Camacho</Text>
+        <Text style={styles.name}>Katherinne Camacho R</Text>
         <Text style={styles.description}>Perfil del inversor</Text>
       </View>
     </View>

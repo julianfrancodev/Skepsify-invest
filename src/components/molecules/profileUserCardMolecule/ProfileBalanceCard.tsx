@@ -5,7 +5,7 @@ export const ProfileBalanceCard = () => {
   return (
     <View style={styles.card}>
       <View style={styles.balanceContainer}>
-        <Text style={styles.balance}>$10.000.000,00</Text>
+        <Text style={styles.balance}>$50.000.000,00</Text>
         <Text style={styles.totalBalance}>Saldo invertido</Text>
       </View>
       <Image 
