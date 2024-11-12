@@ -16,7 +16,8 @@ export const TabNavigation = () => (
 
             tabBarOptions={{
                 activeTintColor: "#C4B0E2",
-                inactiveTintColor: "#222222"
+                inactiveTintColor: "#222222",
+
             }}
             appearance={{
                 tabBarBackground: "#FFFFFF",

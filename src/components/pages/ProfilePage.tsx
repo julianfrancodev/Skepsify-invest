@@ -1,13 +1,16 @@
 import React from 'react'
-import { Text, SafeAreaView } from 'react-native'
+import {SafeAreaView } from 'react-native'
+import { ProfileUserCard } from '../molecules/profileUserCardMolecule/ProfileUserCard'
+import { ProfileBalanceCard } from '../molecules/profileUserCardMolecule/ProfileBalanceCard'
 
 export const ProfilePage = () => {
   return (
     <SafeAreaView>
-        <Text>
-            Profile Page
-        </Text>
+        <ProfileUserCard/>
+        <ProfileBalanceCard/>
     </SafeAreaView>
   )
 }
+
+
 
