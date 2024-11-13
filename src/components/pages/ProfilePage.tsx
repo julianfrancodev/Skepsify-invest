@@ -1,13 +1,20 @@
 import React from 'react'
-import {SafeAreaView } from 'react-native'
-import { ProfileUserCard } from '../molecules/profileUserCardMolecule/ProfileUserCard'
-import { ProfileBalanceCard } from '../molecules/profileUserCardMolecule/ProfileBalanceCard'
+import { SafeAreaView, ScrollView } from 'react-native'
+import { ProfileUserCard } from '../molecules/profileUserMolecules/ProfileUserCard'
+import { ProfileBalanceCard } from '../molecules/profileUserMolecules/ProfileBalanceCard'
+import { ListItemTransaction } from '../organisms/profileItemsListOrganism/ListItemTransaction'
 
 export const ProfilePage = () => {
   return (
     <SafeAreaView>
-        <ProfileUserCard/>
-        <ProfileBalanceCard/>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
+        <ProfileUserCard />
+        <ProfileBalanceCard />
+        <ListItemTransaction />
+      </ScrollView>
     </SafeAreaView>
   )
 }
