@@ -1,12 +1,13 @@
 import React from 'react'
-import { Text, SafeAreaView } from 'react-native'
+import { SafeAreaView } from 'react-native'
+import { SearchHeader } from '../atoms/SearchHeader'
+import { CardListProjectListing } from '../organisms/projectListingCardListOrganism/CardListProjectListing'
 
 export const ProjectListPage = () => {
   return (
     <SafeAreaView>
-        <Text>
-            Project List Page
-        </Text>
+        <SearchHeader/>
+        <CardListProjectListing/>
     </SafeAreaView>
   )
 }

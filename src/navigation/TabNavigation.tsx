@@ -1,4 +1,3 @@
-
 import {
     AnimatedTabBarNavigator,
 } from 'react-native-animated-nav-tab-bar'
@@ -13,11 +12,11 @@ const Tabs = AnimatedTabBarNavigator();
 export const TabNavigation = () => (
     <>
         <Tabs.Navigator
-
+            
             tabBarOptions={{
                 activeTintColor: "#A3C4F3",
                 inactiveTintColor: "#222222",
-
+                
             }}
             appearance={{
                 tabBarBackground: "#FFFFFF",
