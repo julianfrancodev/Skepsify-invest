@@ -5,13 +5,14 @@ interface ButtonProps {
   title: string;
   onPress: () => void;
   style?: StyleProp<ViewStyle>;
+  outline?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({ title, onPress, style }) => {
+export const Button: React.FC<ButtonProps> = ({ title, onPress, style, outline }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, style]}>
+    <TouchableOpacity onPress={onPress} style={[styles.button, outline && styles.outlineButton, style]}>
       <View style={styles.buttonInner}>
-        <Text style={styles.buttonText}>{title}</Text>
+        <Text style={[styles.buttonText, outline && styles.outlineButtonText]}>{title}</Text>
       </View>
     </TouchableOpacity>
   )
@@ -22,11 +23,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#A3C4F3',
     borderRadius: 12,
   },
+  outlineButton: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 2,
+    borderColor: '#A3C4F3',
+  },
   buttonInner: {
     padding: 10,
-    alignItems: 'center', // Center the text horizontally
+    alignItems: 'center',
   },
   buttonText: {
-    textAlign: 'center', // Ensure text is centered
+    textAlign: 'center',
+    color: 'black',
+  },
+  outlineButtonText: {
+    color: 'black',
   },
 })

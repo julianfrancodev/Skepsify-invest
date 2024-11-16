@@ -50,6 +50,7 @@ export const CardProjectList: React.FC<CardProjectListProps> = ({
           title={button2Title}
           onPress={button2Action}
           style={styles.button}
+          outline
         />
       </View>
     </View>
