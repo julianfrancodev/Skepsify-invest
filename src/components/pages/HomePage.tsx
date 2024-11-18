@@ -1,12 +1,11 @@
 import React from 'react'
-import { SafeAreaView, Text, View } from 'react-native'
+import { SafeAreaView } from 'react-native'
+import { HomeMainItemsList } from '../organisms/homeItemsListOrganism/HomeMainItemsList'
 
 export const HomePage = () => {
     return (
         <SafeAreaView>
-            <Text>
-                Home Page
-            </Text>
+            <HomeMainItemsList />
         </SafeAreaView>
     )
 }
