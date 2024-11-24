@@ -10,7 +10,7 @@ export const ProfilePage = () => {
       <ScrollView
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
-        style={{ marginHorizontal: 15 }}
+        style={{ marginHorizontal: 10 }}
       >
         <ProfileUserCard />
         <ProfileBalanceCard />

@@ -15,7 +15,6 @@ export const InputSearch = () => {
         style={styles.input}
         placeholder="Busca un negocio local"
         placeholderTextColor="#999"
-        autoFocus={true}
         value={searchText}
         onChangeText={setSearchText}
       />
@@ -42,7 +41,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 2,
     elevation: 2,
-    marginHorizontal: 20
+    marginHorizontal: 20,
+    marginTop: 15
   },
   input: {
     flex: 1,

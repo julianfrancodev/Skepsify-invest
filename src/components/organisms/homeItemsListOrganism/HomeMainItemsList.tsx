@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Dimensions } from 'react-native'
+import {View, Dimensions } from 'react-native'
 import Carousel from 'react-native-reanimated-carousel';
 import HomeCardItem from '../../molecules/homeItemMolecules/HomeCardItem';
 
@@ -8,7 +8,6 @@ export const HomeMainItemsList = () => {
     const width = Dimensions.get('window').width;
 
     return (
-        <View style={{ flex: 1 }}>
             <Carousel
                 loop
                 width={width}
@@ -23,7 +22,6 @@ export const HomeMainItemsList = () => {
                     />
                 )}
             />
-        </View>
     )
 }
 
