@@ -1,5 +1,4 @@
 import React from 'react'
-import { Text, View } from 'react-native'
 import { FlatGrid } from 'react-native-super-grid';
 import { HomeCardGridItem } from '../../molecules/homeItemMolecules/HomeCardGridItem';
 
@@ -29,16 +28,16 @@ const dataGrid = [
 
 export const HomeGridListOptionsItems = () => {
     return (
-        <View>
 
-            <FlatGrid
-                itemDimension={130}
-                data={dataGrid}
-                renderItem={({ item }) => (<HomeCardGridItem iconName={item.iconName} title={item.title} subtitle={item.subtitle} />)}
-                spacing={15}
-            />
+        <FlatGrid
+            itemDimension={130}
+            data={dataGrid}
+            renderItem={({ item }) => (<HomeCardGridItem iconName={item.iconName} title={item.title} subtitle={item.subtitle} />)}
+            spacing={15}
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
+        />
 
-        </View>
     )
 }
 

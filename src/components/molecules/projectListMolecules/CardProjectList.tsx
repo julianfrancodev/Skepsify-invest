@@ -38,7 +38,9 @@ export const CardProjectList: React.FC<CardProjectListProps> = ({
           <Text style={styles.description}>{description}</Text>
         </View>
       </View>
-      <Progress.Bar borderWidth={2} progress={progress} height={10} width={310} color='#A3C4F3' />
+      <View style={styles.progressContainer}>
+        <Progress.Bar borderWidth={2} progress={progress} height={10} width={null} color='#A3C4F3' style={styles.progressBar} />
+      </View>
       <Text style={styles.progressText}>{progressText}</Text>
       <View style={styles.buttonContainer}>
         <Button
@@ -91,6 +93,14 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     color: '#666'
+  },
+  progressContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 5
+  },
+  progressBar: {
+    flex: 1
   },
   progressText: {
     fontSize: 12,

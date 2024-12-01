@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 8,
         elevation: 5,
-        marginBottom: 16,
     },
     iconContainer: {
         backgroundColor: '#F5C6CB',
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontWeight: 'bold',
-        fontSize: 16,
+        fontSize: 20,
         marginBottom: 4,
     },
     subtitle: {
