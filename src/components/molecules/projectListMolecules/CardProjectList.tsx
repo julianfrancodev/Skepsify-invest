@@ -24,7 +24,7 @@ export const CardProjectList: React.FC<CardProjectListProps> = ({
   button1Title,
   button1Action,
   button2Title,
-  button2Action
+  button2Action,
 }) => {
   return (
     <View style={styles.card}>
@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
     flex: 1
   },
   title: {
-    fontSize: 22,
-    fontWeight: '500',
+    fontSize: 24,
+    fontWeight: 'semibold',
     marginBottom: 5
   },
   description: {
