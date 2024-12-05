@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, SafeAreaView, View, StyleSheet, Image } from 'react-native'
 import { Button } from '../atoms/Button'
 import { useNavigation } from '@react-navigation/native'
-
+  
 export const ProjectDetailPage = () => {
 
   const navigation = useNavigation();
@@ -25,6 +25,7 @@ export const ProjectDetailPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 10
   },
   header: {
     flexDirection: 'row',

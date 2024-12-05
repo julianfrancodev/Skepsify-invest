@@ -21,7 +21,7 @@ export const TabNavigation = () => (
             appearance={{
                 tabBarBackground: "#FFFFFF",
                 shadow: true,
-                floating: true
+                floating: false,
             }}
         >
 
