@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 5,
-    width: '100%',
+    width: '95%', // Ajustado para que el margen horizontal se vea mejor
+    marginHorizontal: '2.5%', // Ajustado para que el margen horizontal se vea mejor
   },
   header: {
     flexDirection: 'row',
