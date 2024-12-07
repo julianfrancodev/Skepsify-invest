@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     elevation: 2,
     paddingHorizontal: 20,
     paddingVertical: 20,
-    marginTop: 10
+    marginTop: 20
   },
   image: {
     width: 50,
