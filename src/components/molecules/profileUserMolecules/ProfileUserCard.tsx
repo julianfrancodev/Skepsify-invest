@@ -1,7 +1,16 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import Feather from 'react-native-vector-icons/Feather'
+import { useNavigation } from '@react-navigation/native'
 
 export const ProfileUserCard = () => {
+
+  const navigation = useNavigation();
+
+  const handleLogout = () => {
+    navigation.navigate('WelcomePage' as never);
+  }
+
   return (
     <View style={styles.card}>
       <Image
@@ -12,6 +21,9 @@ export const ProfileUserCard = () => {
         <Text style={styles.name}>Katherinne Camacho R</Text>
         <Text style={styles.description}>Perfil del inversor</Text>
       </View>
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+        <Feather name="log-out" size={24} color="black" />
+      </TouchableOpacity>
     </View>
   )
 }
@@ -51,5 +63,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 14,
     color: '#666',
+  },
+  logoutButton: {
+    marginRight: 5,
   },
 })

@@ -51,8 +51,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 5,
-    width: '95%', // Ajustado para que el margen horizontal se vea mejor
-    marginHorizontal: '2.5%', // Ajustado para que el margen horizontal se vea mejor
+    width: '95%', 
+    marginHorizontal: '2.5%', 
+    marginTop: 10
   },
   header: {
     flexDirection: 'row',
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: 'semibold',
     marginBottom: 20,
+    marginTop: -20
   },
   projectImage: {
     width: '100%',
