@@ -1,12 +1,11 @@
 import React from 'react'
-import { Text, SafeAreaView } from 'react-native'
+import {SafeAreaView } from 'react-native'
+import { WelcomeMainItems } from '../organisms/welcomeItemsOrganism/WelcomeMainItems'
 
 export const WelcomePage = () => {
   return (
-    <SafeAreaView>
-        <Text>
-            Welcome Page
-        </Text>
+    <SafeAreaView style={{flex: 1}}>
+        <WelcomeMainItems/>
     </SafeAreaView>
   )
 }
