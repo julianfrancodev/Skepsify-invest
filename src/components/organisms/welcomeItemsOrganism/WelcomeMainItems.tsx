@@ -3,6 +3,7 @@ import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { Button } from '../../atoms/Button';
 import { useNavigation } from '@react-navigation/native';
+import FastImage from 'react-native-fast-image'
 
 export const WelcomeMainItems = () => {
 
@@ -19,11 +20,11 @@ export const WelcomeMainItems = () => {
             <Text style={styles.subtitle}>
                 Invierte en negocios locales y proyectos emergentes.
             </Text>
-            <Image
+            <FastImage
                 source={require('../../../../src/assets/images/welcome_img.png')}
                 style={styles.image}
             />
-            <Button title={'Explorar'} onPress={() => navigation.navigate('Tabs' as never)} style={styles.button} textStyle={styles.buttonText} />
+            <Button title={'Explorar'} onPress={() => navigation.navigate('LoginPage' as never)} style={styles.button} textStyle={styles.buttonText} />
         </View>
     )
 }
