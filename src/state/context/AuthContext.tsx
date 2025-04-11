@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useState} from 'react';
-import { AuthState, LoginUser, RegisterUser } from './interfaces/AuthState.interface';
+import { AuthState, LoginUser, RegisterUser } from '../interfaces/AuthState.interface';
 
 
 const authContext = createContext<AuthState | undefined>(undefined);

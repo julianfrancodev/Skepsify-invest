@@ -4,7 +4,7 @@ import { TabNavigation } from './TabNavigation';
 import { ProjectDetailPage } from '../components/pages/ProjectDetailPage';
 import { WelcomePage } from '../components/pages/WelcomePage';
 import { LoginPage } from '../components/pages/LoginPage';
-import { useAuthContext } from '../state/AuthContext';
+import { useAuthContext } from '../state/context/AuthContext';
 
 const Stack = createNativeStackNavigator();
 

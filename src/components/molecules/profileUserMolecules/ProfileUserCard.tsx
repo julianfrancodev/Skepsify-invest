@@ -1,8 +1,7 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import Feather from 'react-native-vector-icons/Feather'
-import { useNavigation } from '@react-navigation/native'
-import { useAuthContext } from '../../../state/AuthContext'
+import { useAuthContext } from '../../../state/context/AuthContext'
 
 export const ProfileUserCard = () => {
 

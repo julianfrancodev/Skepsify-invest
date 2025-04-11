@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useForm, Controller } from "react-hook-form"
 import { FormData } from '../../../interfaces/IinputLogin.interface';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import { useAuthContext } from '../../../state/AuthContext';
+import { useAuthContext } from '../../../state/context/AuthContext';
 
 export const LoginInputItems = () => {
 

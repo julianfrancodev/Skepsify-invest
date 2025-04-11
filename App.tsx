@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { enableScreens } from 'react-native-screens';
 import { Navigation } from './src/navigation/Navigation';
-import { AuthProvider } from './src/state/AuthContext';
+import { AuthProvider } from './src/state/context/AuthContext';
 enableScreens();
 
 
