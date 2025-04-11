@@ -1,12 +1,14 @@
 import React from 'react'
-import { Text, SafeAreaView } from 'react-native'
+import { SafeAreaView } from 'react-native'
+import { ScrollView } from 'react-native-virtualized-view'
+import { AuthHeader } from '../organisms/loginItemsListOrganism/AuthHeader'
 
 export const RegisterPage = () => {
   return (
-    <SafeAreaView>
-        <Text>
-            Register Page
-        </Text>
-    </SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
+    <ScrollView>
+        <AuthHeader title='Registrate para invertir.' />
+    </ScrollView>
+</SafeAreaView>
   )
 }

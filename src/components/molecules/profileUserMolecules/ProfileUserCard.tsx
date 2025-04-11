@@ -2,13 +2,14 @@ import React from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import Feather from 'react-native-vector-icons/Feather'
 import { useNavigation } from '@react-navigation/native'
+import { useAuthContext } from '../../../state/AuthContext'
 
 export const ProfileUserCard = () => {
 
-  const navigation = useNavigation();
+  const {logout} = useAuthContext()
 
   const handleLogout = () => {
-    navigation.navigate('WelcomePage' as never);
+    logout();
   }
 
   return (

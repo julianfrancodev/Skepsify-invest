@@ -1,14 +1,14 @@
 import React from 'react'
 import { SafeAreaView } from 'react-native'
-import { LoginHeader } from '../organisms/loginItemsListOrganism/LoginHeader'
 import { LoginInputItems } from '../organisms/loginItemsListOrganism/LoginInputItems'
 import { ScrollView } from 'react-native-virtualized-view'
+import { AuthHeader } from '../organisms/loginItemsListOrganism/AuthHeader'
 
 export const LoginPage = () => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView>
-                <LoginHeader />
+                <AuthHeader title='Encuentra donde invertir.' />
                 <LoginInputItems />
             </ScrollView>
         </SafeAreaView>

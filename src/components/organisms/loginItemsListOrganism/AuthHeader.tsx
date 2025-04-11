@@ -1,21 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
+interface AuthHeaderProps {
+    title: string;
+}
 
-export const LoginHeader = () => {
-
- 
+export const AuthHeader: React.FC<AuthHeaderProps> = ({ title }) => {
     return (
         <View style={styles.container}>
             <FastImage
                 source={require('../../../../src/assets/images/login_img.png')}
                 style={styles.image}
             />
-            <Text style={styles.titleText}>Encuentra donde invertir.</Text>
+            <Text style={styles.titleText}>{title}</Text>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -31,4 +32,4 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 30,
     },
-})
+});

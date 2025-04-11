@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useState} from 'react';
-import { AuthState, User } from './interfaces/AuthState.interface';
+import { AuthState, LoginUser, RegisterUser } from './interfaces/AuthState.interface';
 
 
 const authContext = createContext<AuthState | undefined>(undefined);
@@ -7,9 +7,9 @@ const authContext = createContext<AuthState | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<LoginUser | null>(null);
 
-  const login = (user: User) => {
+  const login = (user: LoginUser) => {
     setIsAuthenticated(true);
     setUser(user);
   };
@@ -20,16 +20,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
 
-  const register = (name: string, email: string, password: string) => {
-    // Simulate a registration process
-    const newUser: User = {
-      id: '123',
-      name,
-      email,
-      role: 'user',
-    };
+  const register = (registerUser: RegisterUser) => {
+   
     setIsAuthenticated(true);
-    setUser(newUser);
   }
 
 
@@ -39,3 +32,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     </authContext.Provider>
   );
 }
+
+export const useAuthContext = () =>{
+    const context = useContext(authContext);
+    if (context === undefined) {
+      throw new Error('useAuthContext must be used within an AuthProvider');
+    }
+    return context;
+  }

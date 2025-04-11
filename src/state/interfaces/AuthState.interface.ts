@@ -1,14 +1,18 @@
 export interface AuthState {
     isAuthenticated: boolean;
-    user: User | null;
-    login: (user: User) => void;
+    user: LoginUser | null;
+    login: (loginUser: LoginUser) => void;
     logout: () => void;
-    register: (name: string, email: string, password: string) => void;
+    register: (registerUser: RegisterUser) => void;
 }
 
-export interface User {
-    id: string | null;
-    name: string | null;
-    email: string | null;
-    role: string | null;
+export interface RegisterUser{
+    name: string;
+    email: string;
+    password: string;
+}
+
+export interface LoginUser{
+    email: string;
+    password: string;
 }
