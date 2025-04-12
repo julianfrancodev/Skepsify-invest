@@ -1,26 +1,24 @@
-import React from 'react'
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Button } from '../../atoms/Button';
-import { useNavigation } from '@react-navigation/native';
-import { useForm, Controller } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form";
 import { FormData } from '../../../interfaces/IinputLogin.interface';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import { useAuthContext } from '../../../state/context/AuthContext';
 
-export const LoginInputItems = () => {
+export const RegisterInputItems = () => {
 
-    const navigation = useNavigation();
-    const { login } = useAuthContext();
+    const { register } = useAuthContext();
     const { control, handleSubmit, formState: { errors } } = useForm<FormData>();
 
     const onSubmit = (data: FormData) => {
         console.log(data);
-        login({ email: data.email, password: data.password });
+        register({ email: data.email, password: data.password});
     };
-
 
     return (
         <View style={styles.container}>
+          
             <Text style={styles.label}>Ingresa tu Email:</Text>
             <Controller
                 control={control}
@@ -59,20 +57,16 @@ export const LoginInputItems = () => {
                     </View>
                 )}
             />
-            <Button title={'Ingresar'} onPress={handleSubmit(onSubmit)} style={styles.button} textStyle={styles.buttonText} />
+            <Button title={'Registrar'} onPress={handleSubmit(onSubmit)} style={styles.button} textStyle={styles.buttonText} />
 
-            <TouchableOpacity onPress={() => navigation.navigate('registerPage' as never)}>
-                <Text style={styles.registerText}>¿No tienes una cuenta? Registrate.</Text>
-            </TouchableOpacity>
             <View style={styles.divider} />
 
             <TouchableOpacity style={styles.googleButton}>
                 <EvilIcons name="sc-google-plus" size={30} color="grey" style={{ paddingBottom: 5 }} />
             </TouchableOpacity>
         </View>
-    )
-}
-
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -127,10 +121,4 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         alignSelf: 'center',
     },
-    registerText: {
-        textAlign: 'center',
-        color: 'grey',
-        marginTop: 15,
-    },
-})
-
+});

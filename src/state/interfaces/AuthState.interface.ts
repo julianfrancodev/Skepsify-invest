@@ -7,7 +7,6 @@ export interface AuthState {
 }
 
 export interface RegisterUser{
-    name: string;
     email: string;
     password: string;
 }

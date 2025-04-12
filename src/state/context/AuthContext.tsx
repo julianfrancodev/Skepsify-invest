@@ -1,6 +1,7 @@
 import React, {createContext, useContext, useState} from 'react';
-import { AuthState, LoginUser, RegisterUser } from '../interfaces/AuthState.interface';
-
+import { AuthState, LoginUser } from '../interfaces/AuthState.interface';
+import authentication from '@react-native-firebase/auth';
+import Toast from 'react-native-toast-message';
 
 const authContext = createContext<AuthState | undefined>(undefined);
 
@@ -10,21 +11,45 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<LoginUser | null>(null);
 
   const login = (user: LoginUser) => {
-    setIsAuthenticated(true);
     setUser(user);
+    authentication().signInWithEmailAndPassword(user.email, user.password)
+    .then((userCredential) => {
+      // Signed in
+      setIsAuthenticated(true);
+      const user = userCredential.user;
+      console.log('User logged in:', user);
+    }).catch((error) => {
+      Toast.show({
+        type: 'error',
+        text1: 'Lo sentimos',
+        text2: 'No se pudo iniciar sesión, verifica tu email y contraseña',
+      });
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log('Error logging in:', errorCode, errorMessage);
+    })
   };
 
   const logout = () => {
     setIsAuthenticated(false);
     setUser(null);
+    authentication().signOut();
   };
 
-
-  const register = (registerUser: RegisterUser) => {
-   
-    setIsAuthenticated(true);
-  }
-
+  const register = (user: LoginUser) => {
+    setUser(user);
+    authentication().createUserWithEmailAndPassword(user.email, user.password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      setIsAuthenticated(true);
+      console.log('User registered:', user);
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log('Error registering:', errorCode, errorMessage);
+    })
+  };
 
   return (
     <authContext.Provider value={{ isAuthenticated, user, login, logout, register }}>

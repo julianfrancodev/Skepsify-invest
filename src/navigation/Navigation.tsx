@@ -5,6 +5,7 @@ import { ProjectDetailPage } from '../components/pages/ProjectDetailPage';
 import { WelcomePage } from '../components/pages/WelcomePage';
 import { LoginPage } from '../components/pages/LoginPage';
 import { useAuthContext } from '../state/context/AuthContext';
+import { RegisterPage } from '../components/pages/RegisterPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,7 @@ export const Navigation = () => {
                 <>
                     <Stack.Screen name='WelcomePage' component={WelcomePage} />
                     <Stack.Screen name='LoginPage' component={LoginPage} />
+                    <Stack.Screen name='registerPage' component={RegisterPage} />
                 </>
             )}
 

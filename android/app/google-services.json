@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "546162887820",
+    "project_id": "skepsifyinvest",
+    "storage_bucket": "skepsifyinvest.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546162887820:android:e80dde18ff71678d32bfa9",
+        "android_client_info": {
+          "package_name": "com.skepsify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkqjPj5EAqWh5B7zbDXBXvgEifHCZ9Gus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
