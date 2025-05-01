@@ -15,3 +15,13 @@ export interface LoginUser{
     email: string;
     password: string;
 }
+
+export interface LoginUserGoogle {
+    accessToken: string;
+    email:      string;
+    familyName: null;
+    givenName:  string;
+    id:         string;
+    name:       string;
+    photo:      string;
+}

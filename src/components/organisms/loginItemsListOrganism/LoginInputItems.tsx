@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { Button } from '../../atoms/Button';
 import { useNavigation } from '@react-navigation/native';
-import { useForm, Controller } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form";
 import { FormData } from '../../../interfaces/IinputLogin.interface';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import { useAuthContext } from '../../../state/context/AuthContext';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
+import Toast from 'react-native-toast-message';
 
 export const LoginInputItems = () => {
 
@@ -13,10 +16,45 @@ export const LoginInputItems = () => {
     const { login } = useAuthContext();
     const { control, handleSubmit, formState: { errors } } = useForm<FormData>();
 
+    useEffect(() => {
+        GoogleSignin.configure({
+            webClientId: '546162887820-n8moa6vhoke6851176gh8vngtm9co4tv.apps.googleusercontent.com'
+        })
+    }, [])
+
     const onSubmit = (data: FormData) => {
         console.log(data);
         login({ email: data.email, password: data.password });
     };
+
+
+    const onGoogleButtonPress = async () => {
+
+        try {
+            // Check if your device supports Google Play
+            await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+            // Get the users ID token
+            const signInResult = await GoogleSignin.signIn();
+
+            // Try the new style of google-sign in result, from v13+ of that module
+            const idToken = signInResult.data?.idToken;
+
+            // Create a Google credential with the token
+            const googleCredential = auth.GoogleAuthProvider.credential(idToken || null);
+            console.log('Google Credential:', signInResult.data);
+            
+            // Sign-in the user with the credential
+            return auth().signInWithCredential(googleCredential);
+        } catch (error) {
+            console.log('Error signing in with Google:', error);
+            Toast.show({
+                type: 'error',
+                text1: 'Lo sentimos',
+                text2: 'No se pudo iniciar sesión, verifica tu email y contraseña',
+            });
+        }
+
+    }
 
 
     return (
@@ -66,7 +104,7 @@ export const LoginInputItems = () => {
             </TouchableOpacity>
             <View style={styles.divider} />
 
-            <TouchableOpacity style={styles.googleButton}>
+            <TouchableOpacity onPress={() => onGoogleButtonPress()} style={styles.googleButton}>
                 <EvilIcons name="sc-google-plus" size={30} color="grey" style={{ paddingBottom: 5 }} />
             </TouchableOpacity>
         </View>
