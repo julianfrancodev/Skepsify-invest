@@ -1,9 +1,11 @@
 export interface AuthState {
     isAuthenticated: boolean;
     user: LoginUser | null;
+    userGoogle: LoginUserGoogle | null;
     login: (loginUser: LoginUser) => void;
     logout: () => void;
     register: (registerUser: RegisterUser) => void;
+    loginGoogle: (loginUserGoogle: LoginUserGoogle) => void;
 }
 
 export interface RegisterUser{

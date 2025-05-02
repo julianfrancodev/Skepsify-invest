@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useState} from 'react';
-import { AuthState, LoginUser } from '../interfaces/AuthState.interface';
+import { AuthState, LoginUser, LoginUserGoogle } from '../interfaces/AuthState.interface';
 import authentication from '@react-native-firebase/auth';
 import Toast from 'react-native-toast-message';
 
@@ -9,6 +9,7 @@ const authContext = createContext<AuthState | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [user, setUser] = useState<LoginUser | null>(null);
+  const [userGoogle, setUserGoogle] = useState<LoginUserGoogle | null>(null);
 
   const login = (user: LoginUser) => {
     setUser(user);
@@ -29,6 +30,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       console.log('Error logging in:', errorCode, errorMessage);
     })
   };
+
+  const loginGoogle = (user: LoginUserGoogle) => {
+
+    setIsAuthenticated(true);
+    setUserGoogle(user);
+
+  }
 
   const logout = () => {
     setIsAuthenticated(false);
@@ -52,7 +60,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <authContext.Provider value={{ isAuthenticated, user, login, logout, register }}>
+    <authContext.Provider value={{ isAuthenticated, user, login, logout, register, loginGoogle, userGoogle }}>
       {children}
     </authContext.Provider>
   );
