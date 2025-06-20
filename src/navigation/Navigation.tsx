@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TabNavigation } from './TabNavigation';
 import { ProjectDetailPage } from '../components/pages/ProjectDetailPage';
@@ -11,8 +11,10 @@ const Stack = createNativeStackNavigator();
 
 export const Navigation = () => {
 
-    const { isAuthenticated } = useAuthContext();
-
+    const { isAuthenticated, validateToken } = useAuthContext();
+    useEffect(() => {
+        validateToken();
+    }, []);
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             {isAuthenticated ? (

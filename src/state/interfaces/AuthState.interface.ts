@@ -6,6 +6,7 @@ export interface AuthState {
     logout: () => void;
     register: (registerUser: RegisterUser) => void;
     loginGoogle: (loginUserGoogle: LoginUserGoogle) => void;
+    validateToken: () => Promise<boolean>;
 }
 
 export interface RegisterUser{
