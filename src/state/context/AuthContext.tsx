@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { AuthState, LoginUser, LoginUserGoogle } from '../interfaces/AuthState.interface';
 import authentication from '@react-native-firebase/auth';
 import Toast from 'react-native-toast-message';
@@ -10,6 +10,26 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [user, setUser] = useState<LoginUser | null>(null);
   const [userGoogle, setUserGoogle] = useState<LoginUserGoogle | null>(null);
+
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null;
+
+    if (isAuthenticated && authentication().currentUser) {
+      interval = setInterval(async () => {
+        try {
+          await authentication().currentUser?.getIdToken(true); // Fuerza refresh
+          console.log('Token refrescado');
+        } catch (error) {
+          console.log('Error refrescando token:', error);
+        }
+      }, 30 * 60 * 1000); // 30 minutos
+    }
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isAuthenticated]);
 
   const login = (user: LoginUser) => {
     setUser(user);
@@ -58,11 +78,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     } catch (error) {
       setIsAuthenticated(false);
       console.log('Token inválido o expirado:', error);
-         Toast.show({
-          type: 'error',
-          text1: 'Lo sentimos',
-          text2: 'Tu sesión ha expirado, por favor inicia sesión nuevamente',
-        });
+      Toast.show({
+        type: 'error',
+        text1: 'Lo sentimos',
+        text2: 'Tu sesión ha expirado, por favor inicia sesión nuevamente',
+      });
       return false;
     }
   };
